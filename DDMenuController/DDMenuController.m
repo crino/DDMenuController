@@ -27,7 +27,7 @@
 #import "DDMenuController.h"
 
 #define kMenuFullWidth 320.0f
-#define kMenuDisplayedWidth 280.0f
+#define kMenuDisplayedWidth 270.0f
 #define kMenuOverlayWidth (self.view.bounds.size.width - kMenuDisplayedWidth)
 #define kMenuBounceOffset 10.0f
 #define kMenuBounceDuration .3f
@@ -491,13 +491,13 @@
 
     UIView *view = self.leftViewController.view;
 	CGRect frame = self.view.bounds;
-	frame.size.width = kMenuFullWidth;
+	frame.size.width = kMenuDisplayedWidth; //kMenuFullWidth
     view.frame = frame;
     [self.view insertSubview:view atIndex:0];
     [self.leftViewController viewWillAppear:animated];
     
     frame = _root.view.frame;
-    frame.origin.x = CGRectGetMaxX(view.frame) - (kMenuFullWidth - kMenuDisplayedWidth);
+    frame.origin.x = CGRectGetMaxX(view.frame);// - (kMenuFullWidth - kMenuDisplayedWidth);
     
     BOOL _enabled = [UIView areAnimationsEnabled];
     if (!animated) {
@@ -533,8 +533,8 @@
 
     UIView *view = self.rightViewController.view;
     CGRect frame = self.view.bounds;
-	frame.origin.x += frame.size.width - kMenuFullWidth;
-	frame.size.width = kMenuFullWidth;
+	frame.origin.x += frame.size.width - kMenuDisplayedWidth;//kMenuFullWidth;
+	frame.size.width = kMenuDisplayedWidth;//kMenuFullWidth;
     view.frame = frame;
     [self.view insertSubview:view atIndex:0];
     
