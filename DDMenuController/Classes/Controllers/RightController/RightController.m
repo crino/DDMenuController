@@ -35,11 +35,11 @@
     
     if (!_tableView) {
         
-        CGRect frame = self.view.bounds;
-        frame.origin.x = 40.0f;
-        frame.size.width -= 40.0f;
+//        CGRect frame = self.view.bounds;
+//        frame.origin.x = 40.0f;
+//        frame.size.width -= 40.0f;
         
-        UITableView *tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         tableView.delegate = (id<UITableViewDelegate>)self;
         tableView.dataSource = (id<UITableViewDataSource>)self;
